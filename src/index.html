@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="assets/css/index.css" />
-  </head>
-  <body>
-    <div class="input">
-      <h3>Date Configuration</h3>
-      <p>Name</p>
-      <form id="config">
-        <input placeholder="Enter a name..." class="input-styling" type="text" id="name" name="name" required>
-        <p>Description</p>
-        <input placeholder="Enter a description..." class="input-styling" type="text" id="desc" name="desc" required>
-        <p>Date</p>
-        <input class="input-styling" type="date" id="date" name="date" required>
-        <p>submit</p>
-        <input class="input-button" type="submit" id="submit" name="submit" value="Start Timer">
-      </form>
-    </div>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="assets/css/index.css" />
+  <script src="./assets/js/countdown.js"></script>
+  <script src="./assets/js/load.js"></script>
+  <script src="./assets/js/update.js"></script>
+</head>
+
+<body onload="onLoad()">
+  <div class="input" id="input">
+    <h3>Date Configuration</h3>
+    <p>Name</p>
+    <form id="config">
+      <input placeholder="Enter a name..." class="input-styling" type="text" id="name" name="name" required>
+      <p>Description</p>
+      <input placeholder="Enter a description..." class="input-styling" type="text" id="desc" name="desc" required>
+      <p>Date</p>
+      <input class="input-styling" type="datetime-local" id="date" name="date" required>
+      <p>submit</p>
+      <input class="input-button" type="button" id="submit" name="submit" value="Start Timer"
+        onclick="getData(this.form)">
+    </form>
+  </div>
+
+  <div class="countdown hidden" id="countdown">
+    <p id="cd">Countdown</p>
+    <p id="name-cd">Name</p>
+    <p id="desc-cd">Description</p>
+    <p>Reset / Change / Toggle Theme</p>
+  </div>
+  <p onclick="reset()">Click me to reset localstorage</p>
+</body>
+
+<script>
+  (function loop() {
+    setTimeout(function () {
+      updateCountdown();
+      loop()
+    }, 1000);
+  }());
+</script>
+
 </html>
