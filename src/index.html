@@ -7,22 +7,42 @@
   <script src="./assets/js/countdown.js"></script>
   <script src="./assets/js/load.js"></script>
   <script src="./assets/js/update.js"></script>
+  <script src="https://kit.fontawesome.com/d5db5a9cd6.js" crossorigin="anonymous"></script>
 </head>
 
 <body onload="onLoad()">
   <div class="input" id="input">
-    <h3>Date Configuration</h3>
-    <p>Name</p>
-    <form id="config">
-      <input placeholder="Enter a name..." class="input-styling" type="text" id="name" name="name" required>
-      <p>Description</p>
-      <input placeholder="Enter a description..." class="input-styling" type="text" id="desc" name="desc" required>
-      <p>Date</p>
-      <input class="input-styling" type="datetime-local" id="date" name="date" required>
-      <p>submit</p>
-      <input class="input-button" type="button" id="submit" name="submit" value="Start Timer"
-        onclick="getData(this.form)">
-    </form>
+    <h2>Enter the details</h2>
+    <div style="display: none; background-color: rgba(255, 0, 0, 0.534); color: white; padding:10px;border-radius: 5px;"
+      id="alert-box"></div>
+
+    <div class="settings-input">
+
+      <form class="" id="config">
+
+        <div class="settings-input-inner">
+          <div>
+            <b>Name <b style="color: red;">*</b></b><br><br>
+            <input placeholder="Enter a name..." class="input-styling" type="text" id="name" name="name" required>
+          </div>
+  
+          <div>
+            <b>Description <b style="color: red;">*</b><br><br>
+            <input placeholder="Enter a description..." class="input-styling" type="text" id="desc" name="desc" required>
+          </div>
+  
+          <div>
+            <b>Date <b style="color: red;">*</b></b><br><br>
+            <input class="input-styling" type="datetime-local" id="date" name="date" required>
+          </div>
+        </div>
+
+        <br><br>
+        <input class="input-button" type="button" id="submit" name="submit" value="Start Timer"
+          onclick="getData(this.form)">
+      </form>
+
+    </div>
   </div>
 
   <div class="countdown hidden" id="countdown">
@@ -31,7 +51,6 @@
     <p id="desc-cd">Description</p>
     <p>Reset / Change / Toggle Theme</p>
   </div>
-  <p onclick="reset()">Click me to reset localstorage</p>
 </body>
 
 <script>

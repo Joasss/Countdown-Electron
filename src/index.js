@@ -16,12 +16,12 @@ const createWindow = () => {
     width: 980,
     height: 580,
     webPreferences: {
-      nodeIntegration: true
-    },
-    title: "Countdown - Countdown to your dates",
-    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      devTools: true,
       preload: path.join(__dirname, 'preload.js'),
     },
+    title: "Countdown - Countdown to your dates",
   });
 
   // and load the index.html of the app.
